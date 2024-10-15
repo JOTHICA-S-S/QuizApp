@@ -1,12 +1,7 @@
 package com.deloitte.QuizApp.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.Data;
-
-import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
@@ -19,6 +14,16 @@ public class Quiz {
     private Integer id;
 
     private String title;
+
+    public Quiz() {
+    }
+
+    public Quiz(Integer id, String title, List<Question> question) {
+        this.id = id;
+        this.title = title;
+        this.question = question;
+    }
+
     @ManyToMany
     private List<Question> question;
 
@@ -38,7 +43,7 @@ public class Quiz {
         this.title = title;
     }
 
-    public List<Question> getQuestion(List<Question> questions) {
+    public List<Question> getQuestion() {
         return question;
     }
 
