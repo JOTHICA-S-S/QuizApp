@@ -1,12 +1,10 @@
 package com.deloitte.QuizApp.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
+import jakarta.persistence.Id;
 import lombok.*;
 
 import org.springframework.boot.autoconfigure.web.WebProperties;
-import org.springframework.data.annotation.Id;
 
 
 @Getter
@@ -21,6 +19,27 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String category;
+    private String difficultyLevel;
+
+    @Column(name="option_1")
+    private String option1;
+    @Column(name="option_2")
+
+    private String option2;
+    @Column(name="option_3")
+
+    private String option3;
+    @Column(name="option_4")
+
+    private String option4;
+    private String question;
+    private String correctAnswer;
+
+
+    public Question() {
+    }
+
+
 
     public Integer getId() {
         return id;
@@ -94,15 +113,6 @@ public class Question {
         this.correctAnswer = correctAnswer;
     }
 
-    private String difficultyLevel;
-
-    private String option1;
-
-    private String option2;
-    private String option3;
-    private String option4;
-    private String question;
-    private String correctAnswer;
 
     @Override
     public String toString() {

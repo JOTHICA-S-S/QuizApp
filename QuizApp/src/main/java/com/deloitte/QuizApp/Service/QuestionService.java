@@ -66,7 +66,7 @@ public class QuestionService {
 
     public ResponseEntity<String> DeleteQuestion(Integer id) {
 //        ObjectId objId=new ObjectId(id);
-        quesRepo.deleteAllById(id);
+        quesRepo.deleteById(id);
         return new ResponseEntity<>("Deleted",HttpStatus.OK);
     }
 }
